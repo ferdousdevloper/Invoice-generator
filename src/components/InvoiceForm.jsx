@@ -29,6 +29,7 @@ const InvoiceForm = ({ onFormSubmit }) => {
     invoiceDetails: '',
     invoiceDate: '',
     reverseCharge: false,
+    signature: "",
     items: [
       {
         description: '',
@@ -86,6 +87,20 @@ const InvoiceForm = ({ onFormSubmit }) => {
       ...formData,
       items: updatedItems,
     });
+  };
+
+  const handleSignatureChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFormData({
+        ...formData,
+        signature: reader.result,
+      });
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -222,6 +237,10 @@ const InvoiceForm = ({ onFormSubmit }) => {
             <label htmlFor="reverseCharge" className="block text-sm font-medium text-gray-700">Reverse Charge</label>
             <input type="checkbox" id="reverseCharge" name="reverseCharge" checked={formData.reverseCharge} onChange={(e) => setFormData({ ...formData, reverseCharge: e.target.checked })} className="ml-2 h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
           </div>
+          <div>
+          <label htmlFor="signature" className="block text-sm font-medium text-gray-700">Signature</label>
+          <input type="file" id="signature" name="signature" accept="image/*" onChange={handleSignatureChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        </div>
         </div>
 
         {/* Item Details */}

@@ -210,7 +210,7 @@ const InvoicePreview = ({ formData }) => {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td className="px-6 py-4 whitespace-nowrap font-bold " colSpan={8}>For Varasiddhi Silk Exports: <br /> <div className="border w-64 h-14"><img src="" alt="" /></div> <br /> Authorized Signatory</td>
+                <td className="px-6 py-4 whitespace-nowrap font-bold " colSpan={8}>For Varasiddhi Silk Exports: <br /> <div className="border flex items-center justify-center w-48 h-14"><img src={formData?.signature} alt="" className=" h-14" /></div> <br /> Authorized Signatory</td>
               </tr>
 
             </tbody>

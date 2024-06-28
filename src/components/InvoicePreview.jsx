@@ -70,7 +70,7 @@ const InvoicePreview = ({ formData }) => {
   return (
     <div ref={componentRef}>
       <div className="bg-white rounded-lg shadow-lg p-6">
-        <div className="flex justify-between mb-20">
+        <div className="flex justify-between mb-10">
           <img
             src="https://i.ibb.co/Zmds4GZ/Amazon-India-Logo-PNG-HD.png"
             alt=""
